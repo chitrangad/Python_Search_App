@@ -23,10 +23,10 @@ Next, the program will ask the type of search to perform:
 3. Indexed search
 To quit simply hit Enter without entering anything.
 
-For option 1: 
+**Option 1:**
 Enter the exact search string. The program returns the number of hits found in each document within 'sample_files' directory. It also retursn the time taken to perform the serach. Please note the search is case sensitive and takes the literal string entered to perform the search.
 
-For option 2: 
+**Option 2:**
 The program allows regular expression search and is case-insensitive by default.
 
 Some examples:
@@ -55,13 +55,33 @@ Match "Python" at the end of a string or line
 8 \bPython\b
 Match "Python" at a word boundary
 
-For option 3: 
+**Option 3:** 
 Enter search string or phrase. The app does an 'OR' search for multiple words.
 Search is conducted both on file names and the content.
-Following is returned:
+Following information is returned:
 - Total number of hits across all the documents.
 - Top n documents where the search is successful along with the relative score based on relevance.
 - Total time taken to perform the search.
 
-Since the serach is indexed, it's not possible to return hits for each individual document as the indexes are cumulative across sample files.
+It's not possible to return hits for individual documents as the indexes are stored cumulative for the entire set.
 
+### Overview:
+
+The app has 3 parts:
+
+1st part uses simple Python string seach using an 'if' loop. The search is limited in functionality and can only look for exact words. It may not be practical for big documents.
+
+2nd part uses Python's RE library to perform regex search. It is more flexible as one can use wildcards and do caseless searches etc. Again, this is limited in size and not scalable.
+
+3rd part uses Whoosh, an open source Python library. Whoosh provides full-indexing and searching library. 
+It provides several indexing and searching functions that allow us to quickly learn and utilize. 
+
+This is implemented in 2 parts - indexing and searching.
+Indexing uses a schema containing the filename and the content as a single unit. 
+The indexing currently includes stop words for the purpose of the demo. This can easily be fixed by removing the parameter '(stoplist=None)' in the indexer.
+
+Each time new documents are added to the 'sample_files' directory the indexing should be rerun to update the index.
+
+>Once indexed, search is performed by parsing the keywords and matching the keywords with index.
+
+>The app uses TFIDF search algorithm - term frequency over inverse document frequency. This alogorithm, though not as accurate as BM25 is much faster in retrieval. this can be changed based on the specific use case.
