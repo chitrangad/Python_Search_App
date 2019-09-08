@@ -76,11 +76,11 @@ Press any key to exit..
 
 
 Enter search string:<string>
-Search method:
+Select Search method (Press Enter to quit):
 1. String Match
 2. Regular Expression
 3. Indexed
-(Press Enter to quit):
+:
 
 Search results: 
 
