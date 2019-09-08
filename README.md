@@ -66,8 +66,8 @@ Following information is returned:
 It's not possible to return hits for individual documents as the indexes are stored cumulative for the entire set.
 
 ## Interface and Output
-`
-Enter search string:
+```
+Enter search string:<string>
 Search method:
 1. String Match
 2. Regular Expression
@@ -77,8 +77,8 @@ Search method:
 Search results: 
 
 X matches of <string> in <filename> 
-Elapsed time: 40 ms
-`
+Elapsed time: xx.xx ms
+```
 
 ### Overview:
 
