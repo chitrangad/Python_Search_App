@@ -76,12 +76,12 @@ The app has 3 parts:
 3rd part uses Whoosh, an open source Python library. Whoosh provides full-indexing and searching library. 
 It provides several indexing and searching functions that allow us to quickly learn and utilize. 
 
-This is implemented in 2 parts - indexing and searching.
+>This is implemented in 2 parts - indexing and searching.
 Indexing uses a schema containing the filename and the content as a single unit. 
-The indexing currently includes stop words for the purpose of the demo. This can easily be fixed by removing the parameter '(stoplist=None)' in the indexer.
+The indexing currently includes stop words for the purpose of the demo. This can be rmoved by deleting the parameter '(stoplist=None)' in the indexer.
 
 Each time new documents are added to the 'sample_files' directory the indexing should be rerun to update the index.
 
 >Once indexed, search is performed by parsing the keywords and matching the keywords with index.
 
->The app uses TFIDF search algorithm - term frequency over inverse document frequency. This alogorithm, though not as accurate as BM25 is much faster in retrieval. this can be changed based on the specific use case.
+>The app uses TFIDF search algorithm - term frequency over inverse document frequency. This alogorithm, though not as accurate as BM25 is much faster in retrieval. This can be changed based on the specific usecase.
