@@ -65,6 +65,21 @@ Following information is returned:
 
 It's not possible to return hits for individual documents as the indexes are stored cumulative for the entire set.
 
+## Interface and Output
+`
+Enter search string:
+Search method:
+1. String Match
+2. Regular Expression
+3. Indexed
+(Press Enter to quit):
+
+Search results: 
+
+X matches of <string> in <filename> 
+Elapsed time: 40 ms
+`
+
 ### Overview:
 
 The app has 3 parts:
