@@ -31,28 +31,28 @@ The program allows regular expression search and is case-insensitive by default.
 
 Some examples:
 
-1 rub[ye]
+* rub[ye]
 Match "ruby" or "rube"
 
-2 [0-9]
+* [0-9]
 Match any digit; same as [0123456789]
 
-3 [a-z]
+* [a-z]
 Match any lowercase ASCII letter
 
-4	ruby?
+* ruby?
 Match "rub" or "ruby": the y is optional
 
-5 ruby*
+* ruby*
 Match "rub" plus 0 or more y
 
-6 ^Python
+* ^Python
 Match "Python" at the start of a string or internal line
 
-7 Python$
+* Python$
 Match "Python" at the end of a string or line
 
-8 \bPython\b
+* \bPython\b
 Match "Python" at a word boundary
 
 **Option 3:** 
