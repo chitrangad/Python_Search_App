@@ -67,6 +67,14 @@ It's not possible to return hits for individual documents as the indexes are sto
 
 ## Interface and Output
 ```
+indexing: <file1>
+indexing: <file2>
+indexing: <file3>
+Done!
+Total documents indexed: 3
+Press any key to exit..
+
+
 Enter search string:<string>
 Search method:
 1. String Match
