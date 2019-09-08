@@ -8,14 +8,14 @@ The project implements 3 kinds of searches:
 3. Indexed search using Whoosh
 
 ## Usage
-Copy the files indexer.py and searcher.py in the directory of your choice
+Copy the files indexer.py and search_engine.py in the directory of your choice
 Make sure the files you want to index and search are placed in the subdirectory names 'sample_files' in the same folder.
 Only text files are supported.
 
 For indexing, run indexer.py. The program will index the files present in 'sample_files'
 After indexing is finished a folder named indexdir should be created within the parent folder.
 
-To search, run the searcher.py
+To search, run the search_engine.py
 The program will prompt for search string.
 Next, the program will ask the type of search to perform:
 1. Simple search
