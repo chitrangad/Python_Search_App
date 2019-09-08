@@ -1,7 +1,6 @@
 #  Python_Search_App
-## Simple search app in python using Whoosh and RE
+## Simple Search App in Python using Whoosh and RE
 
-## Search and indexing using Whoosh library.
 The project implements 3 kinds of searches: 
 1.Simple string search
 2.Regular expression search using RE
