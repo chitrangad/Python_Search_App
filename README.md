@@ -2,9 +2,10 @@
 ## Simple Search App in Python using Whoosh and RE
 
 The project implements 3 kinds of searches: 
-1.Simple string search
-2.Regular expression search using RE
-3.Indexed search using Whoosh
+
+1. Simple string search
+2. Regular expression search using RE
+3. Indexed search using Whoosh
 
 ## Usage
 Copy the files indexer.py and searcher.py in the directory of your choice
