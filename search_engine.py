@@ -51,7 +51,7 @@ def index_search(string):
 	#print(query)
 	with ix.searcher(weighting=TF_IDF()) as searcher:
 		results = searcher.search(query, terms=True,limit=None)
-		results.fragmenter = highlight.ContextFragmenter(maxchars=50, surround=50, ) # allows to return the text snippet and 50 chars before-after
+		results.fragmenter = highlight.ContextFragmenter(maxchars=50, surround=20, ) # allows to return the text snippet and 50 chars before-after
 		results.formatter = highlight.UppercaseFormatter() # highlights the string in caps on text found.
 		freq = searcher.frequency("content", string)
 		print("Total hits across all documents:",int(freq))
@@ -69,7 +69,7 @@ def index_search(string):
 				title = hit['title']
 				score = "Score: " + str(hit.score)
 				print(str(title), str(score),'',sep='\n')
-				print(hit.highlights("content"),'\n')
+				print(hit.highlights("content",top=1),'\n')
 	print("Total Elapsed Time:" + str(run_time*1000) + " ms\n")
 
 					
