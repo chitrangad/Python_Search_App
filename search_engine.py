@@ -46,31 +46,21 @@ def simple_search(string):
 	
 def index_search(string):
 	ix = open_dir(indexdir)
-	qp = qparser.MultifieldParser(['content','title'], ix.schema,group=qparser.OrGroup) #search in both the indexed fields
+	qp = qparser.QueryParser('content', ix.schema,group=qparser.OrGroup) #search in both the indexed fields
 	query = qp.parse(string)
 	#print(query)
 	with ix.searcher(weighting=TF_IDF()) as searcher:
 		results = searcher.search(query, terms=True,limit=None)
-		results.fragmenter = highlight.ContextFragmenter(maxchars=50, surround=20, ) # allows to return the text snippet and 50 chars before-after
+		results.fragmenter = highlight.SentenceFragmenter(maxchars=80) # allows to return the matched sentence upto 80 chars
 		results.formatter = highlight.UppercaseFormatter() # highlights the string in caps on text found.
-		freq = searcher.frequency("content", string)
-		print("Total hits across all documents:",int(freq))
-		found = results.scored_length()
 		run_time = results.runtime
-		if found == 0:
-			top = "\nSorry " + str(found) + " results Found for "+string
-		
-		else:
-			top = "\nTop " + str(found) + " results Found for "+string+':\n'
-				 
-		print(top)
 		if results:
 			for hit in results:
 				title = hit['title']
-				score = "Score: " + str(hit.score)
-				print(str(title), str(score),'',sep='\n')
-				print(hit.highlights("content",top=1),'\n')
-	print("Total Elapsed Time:" + str(run_time*1000) + " ms\n")
+				score = "SCORE: " + str(round(hit.score,3))
+				print('>>'+str(title), str(score),sep=' ## ')
+				print(hit.highlights("content",top=1)+'\n') # Just one hit per doc to highlight
+	print("Total docs found:",str(len(results)),"\nTotal Elapsed Time:" + str(run_time*1000) + " ms\n")
 
 					
 def reg_search(string):

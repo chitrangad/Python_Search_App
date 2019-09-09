@@ -14,8 +14,8 @@ indexdir = os.getcwd()+'/indexdir/'
 def main():
     # Define the schema for indexing. we have only filename(title) and the content
 	schema = Schema(
-			title=TEXT(stored=True, phrase=True, sortable=True),
-			content=TEXT(analyzer=StandardAnalyzer(stoplist=None), stored=False, phrase=True, sortable=True)) # include stopwords for full search
+			title=TEXT(stored=True, phrase=False, sortable=True),
+			content=TEXT(analyzer=StemmingAnalyzer(stoplist=None), stored=False, phrase=False, sortable=True)) # include stopwords for full search
 	if not os.path.exists(indexdir):
 		os.mkdir(indexdir)
 
@@ -45,4 +45,3 @@ def main():
 
 if __name__ == "__main__":
 	main()
-
