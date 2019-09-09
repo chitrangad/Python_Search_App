@@ -62,8 +62,8 @@ Match "Python" at a word boundary
 Enter search string or phrase. The app does an 'OR' search for multiple words.
 Search is conducted both on file names and the content.
 Following information is returned:
-- Total number of documents with the string.
-- Search score based on string location and occurrence.
+- Total number of documents containing the string.
+- Search score based on location and occurrence.
 - Total time taken to perform the search.
 
 It's not possible to return hits for individual documents as the indexes are stored for the entire set.
