@@ -35,6 +35,7 @@ def main():
 			writer.add_document(title=filename, content=content)
 		except:
 			print("Failed to index",filename)
+			number_indexed -= 1
 			continue
 	writer.commit()
 	print("Done!")
