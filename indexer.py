@@ -30,7 +30,7 @@ def main():
 		print("indexing: "+print_filename)
 		number_indexed += 1
 		try:
-			f = open(test_dir + "/" + filename, 'r')
+			f = open(test_dir + filename, 'r')
 			content = f.read()
 			writer.add_document(title=filename, content=content)
 		except:
