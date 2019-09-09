@@ -11,7 +11,7 @@ The project implements 3 kinds of searches:
 Install following libraries using 'pip install': whoosh, re
 
 Copy the files indexer.py and search_engine.py in the directory of your choice
-Make sure the files you want to index and search are placed in the subdirectory names 'sample_files' in the same folder.
+Make sure the files you want to index and search are placed in the subdirectory named 'sample_files' in the same folder.
 Only text files are supported.
 
 For indexing, run indexer.py. The program will index the files present in 'sample_files'
