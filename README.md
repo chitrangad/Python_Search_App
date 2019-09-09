@@ -21,10 +21,11 @@ Next, the program will ask the type of search to perform:
 1. Simple search
 2. Regular expression search
 3. Indexed search
-To quit simply hit Enter without entering anything.
+
+To quit, simply hit Enter.
 
 **Option 1:**
-Enter the exact search string. The program returns the number of hits found in each document within 'sample_files' directory. It also retursn the time taken to perform the serach. Please note the search is case sensitive and takes the literal string entered to perform the search.
+Enter the exact search string. The program returns the number of hits found in each document within 'sample_files' directory. It also returns the time taken to perform the serach. Please note the search is case sensitive and takes the literal string entered to perform the search.
 
 **Option 2:**
 The program allows regular expression search and is case-insensitive by default.
@@ -59,11 +60,11 @@ Match "Python" at a word boundary
 Enter search string or phrase. The app does an 'OR' search for multiple words.
 Search is conducted both on file names and the content.
 Following information is returned:
-- Total number of hits across all the documents.
-- Top n documents where the search is successful along with the relative score based on relevance.
+- Total number of documents with the string.
+- Search score based on string location and occurrence.
 - Total time taken to perform the search.
 
-It's not possible to return hits for individual documents as the indexes are stored cumulative for the entire set.
+It's not possible to return hits for individual documents as the indexes are stored for the entire set.
 
 ## Interface and Output
 ```
@@ -92,19 +93,19 @@ Elapsed time: xx.xx ms
 
 The app has 3 parts:
 
-1st part uses simple Python string seach using an 'if' loop. The search is limited in functionality and can only look for exact words. It may not be practical for big documents.
+1st part uses simple Python string seach using string comparison. The search is limited in functionality and can only look for exact word or word matching the substring. the search is limited by physical memory and large documents may throw memory error. It may not be practical for big documents.
 
 2nd part uses Python's RE library to perform regex search. It is more flexible as one can use wildcards and do caseless searches etc. Again, this is limited in size and not scalable.
 
 3rd part uses Whoosh, an open source Python library. Whoosh provides full-indexing and searching library. 
-It provides several indexing and searching functions that allow us to quickly learn and utilize. 
+It provides several indexing and searching functions that allows quick retrieval. 
 
 >This is implemented in 2 parts - indexing and searching.
-Indexing uses a schema containing the filename and the content as a single unit. 
+Indexing uses a schema containing the filename and the file content. 
 The indexing currently includes stop words for the purpose of the demo. This can be rmoved by deleting the parameter '(stoplist=None)' in the indexer.
 
 Each time new documents are added to the 'sample_files' directory the indexing should be rerun to update the index.
 
->Once indexed, search is performed by parsing the keywords and matching the keywords with index.
+>Once indexed, search is performed by parsing the keywords and matching the keywords within index.
 
 >The app uses TFIDF search algorithm - term frequency over inverse document frequency. This alogorithm, though not as accurate as BM25 is much faster in retrieval. This can be changed based on the specific usecase.
