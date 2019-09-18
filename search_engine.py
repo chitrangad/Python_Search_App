@@ -37,7 +37,7 @@ def simple_search(string):
 		with open(test_dir + filename) as currentFile:
 			text = currentFile.read()
 			if (string in text.split()):
-				print(text.count(string),"Matches of '"+string+ "' in:", filename)
+				print(text.split().count(string),"Matches of '"+string+ "' in:", filename)
 				count+=1
 	if count==0:
 		print("Sorry 0 results found for:",string)
@@ -70,7 +70,7 @@ def reg_search(string):
 		with open(test_dir + filename) as currentFile:
 			text = currentFile.read()
 			try:
-				cnt=len(re.findall('(?i)'+string, text))
+				cnt=len(re.findall('\\b'+string+'\\b', text))
 			except:
 				cnt=0
 			if cnt>0:
