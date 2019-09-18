@@ -36,7 +36,7 @@ def simple_search(string):
 	for filename in os.listdir(test_dir) :
 		with open(test_dir + filename) as currentFile:
 			text = currentFile.read()
-			if (string in text):
+			if (string in text.split()):
 				print(text.count(string),"Matches of '"+string+ "' in:", filename)
 				count+=1
 	if count==0:
